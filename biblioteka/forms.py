@@ -2,12 +2,14 @@ from django.forms import ModelForm
 from django import forms
 from .models import *
 
+
 class AutorForm(ModelForm):
     class Meta:
         model = Autor
-        fields = 'all'
+        fields = '__all__'
+
 
 class KnjigaForm(ModelForm):
     class Meta:
         model = Knjiga
-        fields = 'all'
+        fields = '__all__'
