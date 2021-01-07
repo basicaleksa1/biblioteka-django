@@ -3,10 +3,10 @@
 {% block content %}
 <hr class = "row">
     <div class="col-md-5"></div>
-    <h2>Autor:</h2>
+    <h2>Autori:</h2>
     <hr>
     <div class="card card-body">
-        <a class="btn btn-primary btn-sm btn-block" href="{% url 'biblioteka:dodajAutor' %}">Dodaj
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'biblioteka:dodajAutor' %}">Dodaj autora
         </a>
         <table class="table table-sm">
             <tr>
@@ -26,10 +26,10 @@
         </table>
     </div>
     <div class="col-md-7"></div>
-    <h2>Knjiga:</h2>
+    <h2>Knjige:</h2>
     <hr>
     <div class = "card card-body">
-        <a class = "btn btn-primary btn-sm btn-block" href="">Dodaj
+        <a class = "btn btn-primary btn-sm btn-block"  href="{% url 'biblioteka:dodajKnjiga' %}">Dodaj knjigu
         </a>
         <table class="table table-sm">
             <tr>
@@ -46,8 +46,8 @@
                 <td>{{i.naziv}}</td>
                 <td>{{i.autor}}</td>
                 <td>{{i.zanr}}</td>
-                <td><button type="button" class="btn btn-danger">delete</button></td>
-                <td><button type="button" class="btn btn-primary" href="{% url 'biblioteka:knjiga' i.id %}">update</button></td>
+                <td><a type="button" class="btn btn-danger"  href="{% url 'biblioteka:obrisiKnjiga' i.id %}">delete</a></td>
+                <td><a type="button" class="btn btn-primary"  href="{% url 'biblioteka:updateKnjiga' i.id %}">update</a></td>
             </tr>
             {% endfor %}
         </table>

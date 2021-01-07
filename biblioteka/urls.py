@@ -5,8 +5,10 @@ app_name = 'biblioteka'
 urlpatterns = [
     path('', views.biblioteka, name='home'),
     path('update_autor/<int:autor_id>/', views.updateAutor, name='updateAutor'),
-    path('dodaj_autor.', views.dodajAutor, name='dodajAutor'),
+    path('dodaj_autor', views.dodajAutor, name='dodajAutor'),
     path('obrisi_autor/<int:autor_id>/', views.obrisiAutor, name='obrisiAutor'),
-    path('knjiga/<int:knjiga_id>/', views.knjiga, name='knjiga'),
+    path('update_knjiga/<int:knjiga_id>/', views.updateKnjiga, name='updateKnjiga'),
+    path('dodaj_knjiga', views.dodajKnjiga, name='dodajKnjiga'),
+    path('obrisi_knjiga/<int:knjiga_id>/', views.obrisiKnjiga, name='obrisiKnjiga'),
 
 ]

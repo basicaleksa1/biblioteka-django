@@ -41,7 +41,35 @@ def obrisiAutor(request, autor_id):
     return render(request, 'biblioteka/obrisi_autor.html', context)
 
 
-def knjiga(request, knjiga_id):
-    knjiga = Autor.objects.get(id=knjiga_id)
-    context = {'knjiga': knjiga}
+def updateKnjiga(request, knjiga_id):
+    knjiga = Knjiga.objects.get(id=knjiga_id)
+    form = KnjigaForm(instance=knjiga)
+    if request.method == 'POST':
+        form = KnjigaForm(request.POST, instance=knjiga)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'knjiga': knjiga, 'form': form}
     return render(request, 'biblioteka/knjiga.html', context)
+
+
+def dodajKnjiga(request):
+    form = KnjigaForm()
+    if request.method == 'POST':
+        form = KnjigaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'biblioteka/knjiga.html', context)
+
+
+def obrisiKnjiga(request, knjiga_id):
+    knjiga = Knjiga.objects.get(id=knjiga_id)
+    if request.method == 'POST':
+        knjiga.delete()
+        return redirect('/')
+    context = {'knjiga': knjiga}
+    return render(request, 'biblioteka/obrisi_knjiga.html', context)
+
+
