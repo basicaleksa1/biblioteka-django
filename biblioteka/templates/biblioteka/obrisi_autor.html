@@ -4,13 +4,19 @@
 
 <p>Da li ste sigurni da zelite da obrisete "{{autor}}?"</p>
 
-<form action="{% url 'biblioteka:obrisiAutor' autor.id %}" method="POST">
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <form action="{% url 'biblioteka:obrisiAutor' autor.id %}" method="POST">
 
 
-    {% csrf_token %}
-    <a class="btn btn-warning" href="{% url 'biblioteka:home' %}">Cancel</a>
+                {% csrf_token %}
+                <a class="btn btn-warning" href="{% url 'biblioteka:home' %}">Cancel</a>
 
-    <input class="btn btn-danger" type="submit" name="Confirm">
-</form>
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

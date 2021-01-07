@@ -10,5 +10,8 @@ urlpatterns = [
     path('update_knjiga/<int:knjiga_id>/', views.updateKnjiga, name='updateKnjiga'),
     path('dodaj_knjiga', views.dodajKnjiga, name='dodajKnjiga'),
     path('obrisi_knjiga/<int:knjiga_id>/', views.obrisiKnjiga, name='obrisiKnjiga'),
+    path('login/', views.loginPage, name='login'),
+    path('register/', views.registerPage, name='register'),
+    path('logout/', views.logoutPage, name='logout')
 
 ]
