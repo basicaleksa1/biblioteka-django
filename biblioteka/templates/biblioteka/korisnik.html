@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'biblioteka/main.html' %}
+{% block content %}
 
-</body>
-</html>
+<hr class = "row">
+    <div class="col-md-5"></div>
+    <h2>Autori:</h2>
+    <hr>
+    <div class="card card-body">
+        <table class="table table-sm">
+            <tr>
+                <th>ime</th>
+                <th>prezime</th>
+            </tr>
+            {% for i in autor %}
+            <tr>
+                 <td>{{i.ime}}</td>
+                 <td>{{i.prezime}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-md-7"></div>
+    <h2>Knjige:</h2>
+    <hr>
+    <div class = "card card-body">
+        <table class="table table-sm">
+            <tr>
+                <th>isbn</th>
+                <th>naziv</th>
+                <th>autor</th>
+                <th>zanr</th>
+            </tr>
+            {% for i in knjiga %}
+            <tr>
+                <td>{{i.isbn}}</td>
+                <td>{{i.naziv}}</td>
+                <td>{{i.autor}}</td>
+                <td>{{i.zanr}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

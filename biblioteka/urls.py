@@ -12,6 +12,7 @@ urlpatterns = [
     path('obrisi_knjiga/<int:knjiga_id>/', views.obrisiKnjiga, name='obrisiKnjiga'),
     path('login/', views.loginPage, name='login'),
     path('register/', views.registerPage, name='register'),
-    path('logout/', views.logoutPage, name='logout')
+    path('logout/', views.logoutPage, name='logout'),
+    path('korisnik/', views.userPage, name='korisnik')
 
 ]
