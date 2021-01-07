@@ -32,8 +32,13 @@ def dodajAutor(request):
     return render(request, 'biblioteka/autor.html', context)
 
 
-def deleteAutor(request, autor_id):
-    return render(request, 'biblioteka/home')
+def obrisiAutor(request, autor_id):
+    autor = Autor.objects.get(id=autor_id)
+    if request.method == 'POST':
+        autor.delete()
+        return redirect('/')
+    context = {'autor': autor}
+    return render(request, 'biblioteka/obrisi_autor.html', context)
 
 
 def knjiga(request, knjiga_id):
